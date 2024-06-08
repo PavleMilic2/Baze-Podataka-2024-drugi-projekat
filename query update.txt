@@ -5,4 +5,5 @@
                 "                (atm.procenat_kiseonika between 15 and 25) and (atm.procenat_neotrovnog_gasa+atm.procenat_kiseonika\n" +
                 "                 between 90 and 99) AND (obj.limit_gravitacionog_polja>999) and (obj.brzina_orbite between 25 and 35)\n" +
                 "                 and (select count(*) from osobe o join smrt s on s.id_osobe=o.id_osobe join boravak on boravak.id_osobe=o.id_osobe where \n" +
-                "                      (select CURRENT_DATE from dual)-datum_smrti<365 and obj.id_objekta=boravak.id_objekta and abs(boravak.datum_dolaska-boravak.datum_odlaska)>365)<20";
+                "                      (select CURRENT_DATE from dual)-datum_smrti<365 and obj.id_objekta=boravak.id_objekta and abs(boravak.datum_dolaska-boravak.datum_odlaska)>365 " +
+                "                       and (abs(datum_rodjenja-(select CURRENT_DATE from dual)/365))<40)<20";
